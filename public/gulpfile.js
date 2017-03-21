@@ -1,9 +1,13 @@
 var gulp = require('gulp'),
-	scss = require('gulp-sass'),
+	sass = require('gulp-sass'),
 	clean = require('gulp-clean'),
 	gulpSequence = require('gulp-sequence'),
 	webpack = require('webpack'),
-	webpackConfig = require('./webpack.config.js');
+	webpackConfig = require('./webpack.config.js'),
+	minifycss = require('gulp-minify-css'),
+	rev = require('gulp-rev'),
+	concat = require('gulp-concat'),
+	autoprefixer = require('gulp-autoprefixer');
 
 
 gulp.task('clean', function() {
@@ -12,15 +16,31 @@ gulp.task('clean', function() {
 })
 
 gulp.task('webpack', function(cb) {
-	webpack(webpackConfig,function(er,status) {
-			cb();
+	var myConfig = Object.create(webpackConfig);
+
+	webpack(myConfig,function(er,status) {
+		cb();
 	})
 })
 
 gulp.task('sass',function() {
-	return gulp.src('scss/*.scss')
+	return gulp.src('scss/**/*.scss')
 		.pipe(sass())
-		.pipe(gulp.dest('build/css'));
+		.pipe(gulp.dest('css'));
 })
 
-gulp.task('default',gulpSequence('clean','webpack'));
+// 压缩 css
+gulp.task('css',function() {
+	return gulp.src('css/*css')
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(minifycss())   // 压缩
+		.pipe(concat('style.css'))   // 合并
+		.pipe(rev())   // 重命名 md5
+		.pipe(gulp.dest('build/css'));
+
+})
+
+gulp.task('default',gulpSequence('clean','webpack','sass','css'));

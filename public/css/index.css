@@ -1,0 +1,10 @@
+.m-footer {
+  display: table;
+  table-layout: fixed;
+  min-height: .48rem;
+  border-top: 1px solid #ccc;
+  font-size: .14rem; }
+  .m-footer a {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle; }
