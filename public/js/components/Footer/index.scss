@@ -1,0 +1,12 @@
+.m-footer {
+	display: table;
+	table-layout: fixed;
+	min-height: .3rem;
+	border-top: 1px solid #ccc;
+
+	a {
+		display: : table-cell;
+		text-align: center;
+		vertical-align: middle;
+	}
+}

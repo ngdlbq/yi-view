@@ -1,0 +1,9 @@
+{
+	presets: ['latest','es2015-loose','react','stage-2'],
+	plugins: ['add-module-exports',["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }]]
+}
