@@ -32,8 +32,8 @@ module.exports = {
 			filename: 'js/vendor.js'
 		}),
 		new HtmlwebpackPlugin({
-			template: path.join(__dirname, 'view/index.html'),
-			filename: 'view/index.html',
+			template: path.join(__dirname, './int/index.html'),
+			filename: '../view/index.html',
 			chunks: ['vendor','index'],
 			title: '易商品',
 			hash: true

@@ -7,7 +7,9 @@ var gulp = require('gulp'),
 	minifycss = require('gulp-minify-css'),
 	rev = require('gulp-rev'),
 	concat = require('gulp-concat'),
-	autoprefixer = require('gulp-autoprefixer');
+	autoprefixer = require('gulp-autoprefixer'),
+	replace = require('gulp-replace'),
+	livereload = require('gulp-livereload');
 
 
 gulp.task('clean', function() {
@@ -38,9 +40,27 @@ gulp.task('css',function() {
 		}))
 		.pipe(minifycss())   // 压缩
 		.pipe(concat('style.css'))   // 合并
-		.pipe(rev())   // 重命名 md5
+		//.pipe(rev())   // 重命名 md5
 		.pipe(gulp.dest('build/css'));
 
 })
 
-gulp.task('default',gulpSequence('clean','webpack','sass','css'));
+gulp.task('replace',function() {
+	return gulp.src('view/*.html')
+		.pipe(replace('../../css','../css'))
+		.pipe(replace('../build/js','../js'))
+		.pipe(gulp.dest('build/view'))
+})
+
+gulp.task('watch',function() {
+	livereload.listen();
+	gulp.watch(['scss/**/*.scss'],['sass']);
+	gulp.watch(['css/**/*.css'],['css']);
+	gulp.watch(['js/**/*.js'],['webpack']);
+	gulp.watch(['view/**/*.html'],['replace']);
+	gulp.watch(['build/**/*.*'],function() {
+		livereload.changed('index.html');
+	})
+})
+
+gulp.task('default',gulpSequence('clean','sass','css','webpack','replace','watch'));
