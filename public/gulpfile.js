@@ -9,7 +9,8 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	autoprefixer = require('gulp-autoprefixer'),
 	replace = require('gulp-replace'),
-	livereload = require('gulp-livereload');
+	livereload = require('gulp-livereload'),
+	imagemin = require('gulp-imagemin');
 
 
 gulp.task('clean', function() {
@@ -45,6 +46,13 @@ gulp.task('css',function() {
 
 })
 
+// 压缩图片
+gulp.task('imagemin', function() {
+	return gulp.src('images/*.{jpg,png}')
+		.pipe(imagemin())
+		.pipe(gulp.dest('build/images'));
+})
+
 gulp.task('replace',function() {
 	return gulp.src('view/*.html')
 		.pipe(replace('../../css','../css'))
@@ -63,4 +71,4 @@ gulp.task('watch',function() {
 	})
 })
 
-gulp.task('default',gulpSequence('clean','sass','css','webpack','replace','watch'));
+gulp.task('default',gulpSequence('clean','sass','css','imagemin','webpack','replace','watch'));

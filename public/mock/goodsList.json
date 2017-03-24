@@ -1,0 +1,47 @@
+[
+	{
+		"goodsImg": "../images/1.jpg",
+		"goodsName": "网易小方盒插线板（2A3U口）",
+		"goodsDesc": "数码办公必备的超级小方盒 5V/3A",
+		"mobileNum": 3,
+		"mobilePrice": 50,
+		"originPrice": 58,
+		"ssuId": 1478954
+	},
+	{
+		"goodsImg": "../images/2.jpg",
+		"goodsName": "网易小方盒插线板（2A3U口）",
+		"goodsDesc": "数码办公必备的超级小方盒 5V/3A",
+		"mobileNum": 2,
+		"mobilePrice": 40,
+		"originPrice": 53,
+		"ssuId": 456474
+	},
+	{
+		"goodsImg": "../images/3.jpg",
+		"goodsName": "网易小方盒插线板（2A3U口）",
+		"goodsDesc": "数码办公必备的超级小方盒 5V/3A",
+		"mobileNum": 3,
+		"mobilePrice": 20,
+		"originPrice": 28,
+		"ssuId": 523752
+	},
+	{
+		"goodsImg": "../images/4.jpg",
+		"goodsName": "网易小方盒插线板（2A3U口）",
+		"goodsDesc": "数码办公必备的超级小方盒 5V/3A",
+		"mobileNum": 4,
+		"mobilePrice": 50,
+		"originPrice": 58,
+		"ssuId": 2527527
+	},
+	{
+		"goodsImg": "../images/5.jpg",
+		"goodsName": "网易小方盒插线板（2A3U口）",
+		"goodsDesc": "数码办公必备的超级小方盒 5V/3A",
+		"mobileNum": 3,
+		"mobilePrice": 50,
+		"originPrice": 58,
+		"ssuId": 2378237
+	}
+]

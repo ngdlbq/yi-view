@@ -5,8 +5,26 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<title>易商城</title>
 	<link rel="stylesheet" href="../../css/style.css">
+	<script>
+	!function() {
+	        var html = document.documentElement,
+	            timer = null;
+	        function init() {
+	            if(parseInt(document.documentElement.clientWidth) > 720){
+	                html.style.fontSize = (720 / 3.2) + 'px';
+	            }else{
+	                html.style.fontSize = (html.clientWidth / 3.2 ) + 'px';
+	            }
+	        }
+	        window.addEventListener('resize',function(){
+	            clearTimeout(timer);
+	            timer = setTimeout(init,300);
+	        },false);
+	        init();
+	    }();
+	</script>
 </head>
 <body>
 	<div id="app"></div>
-<script type="text/javascript" src="../build/js/vendor.js?f4c840a2a6f1bc6ecbb1"></script><script type="text/javascript" src="../build/js/index.js?f4c840a2a6f1bc6ecbb1"></script></body>
+<script type="text/javascript" src="../build/js/vendor.js?360541cda26947ed2ce3"></script><script type="text/javascript" src="../build/js/index.js?360541cda26947ed2ce3"></script></body>
 </html>

@@ -20,12 +20,16 @@ module.exports = {
 			}
 		]
 	},
-	// resolve: {
-	// 	extensions: ['','.js','.jsx']
-	// },
+	resolve: {
+		alias: {
+			zepto: path.join(__dirname,'lib/zepto-1.2.0.js'),
+			jQuery: path.join(__dirname,'lib/jquery.1.11.1.js')
+		}
+	},
 	plugins: [
+		// 设置全局变量
 		new webpack.ProvidePlugin({
-
+			$: 'jQuery',
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
